@@ -25,7 +25,7 @@ export class AuthController {
   verify(@Req() req) {
     return {
       status: 'token is valid',
-      user: req.user, // اگر توکن معتبر باشد، اطلاعات کاربر برگردانده می‌شود
+      user: req.user, // اگر توکن معتبر باشه، اطلاعات کاربر برگردانده میشه
     };
   }
 }
