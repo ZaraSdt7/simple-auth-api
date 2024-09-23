@@ -4,13 +4,14 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from 'src/router/jwt.strategy';
-
+import { config } from 'dotenv';
+config();
 @Module({
   imports: [
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET, //کلید JWT
-      signOptions: { expiresIn: '60s' }, // زمان انقضا
+      signOptions: { expiresIn: '1d' }, // زمان انقضا
     }),
   ],
   providers: [AuthService, JwtStrategy],
