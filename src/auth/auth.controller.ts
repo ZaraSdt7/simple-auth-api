@@ -23,6 +23,9 @@ export class AuthController {
   @Post('verify')
   @UseGuards(JwtAuthGuard)
   verify(@Req() req) {
-    return req.user; // اگر توکن معتبر باشد، اطلاعات کاربر برگردانده می‌شود
+    return {
+      status: 'token is valid',
+      user: req.user, // اگر توکن معتبر باشد، اطلاعات کاربر برگردانده می‌شود
+    };
   }
 }

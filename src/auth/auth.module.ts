@@ -9,7 +9,7 @@ import { JwtStrategy } from 'src/router/jwt.strategy';
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: 'your_secret_key', // کلید مخفی برای JWT
+      secret: process.env.JWT_SECRET, //کلید JWT
       signOptions: { expiresIn: '60s' }, // زمان انقضا
     }),
   ],
