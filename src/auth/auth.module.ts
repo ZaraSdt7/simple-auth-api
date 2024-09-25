@@ -11,7 +11,7 @@ config();
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET, //کلید JWT
-      signOptions: { expiresIn: '1d' }, // زمان انقضا
+      signOptions: { expiresIn: '30m' }, // زمان انقضا
     }),
   ],
   providers: [AuthService, JwtStrategy],
