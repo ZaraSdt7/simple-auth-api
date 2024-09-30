@@ -12,7 +12,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  // در اینجا اطلاعات توکن JWT پس از اعتبارسنجی برگردانده می‌شود
   static async validate(payload: any) {
     return { userId: payload.sub, username: payload.username };
   }

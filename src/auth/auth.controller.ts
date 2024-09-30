@@ -6,7 +6,6 @@ import { JwtAuthGuard } from 'src/router/jwt-auth.guard';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  // روت لاگین که JWT را برمی‌گرداند
   @Post('login')
   async login(@Body() body: { username: string; password: string }) {
     const user = await this.authService.validateUser(
@@ -19,13 +18,12 @@ export class AuthController {
     return this.authService.login(user);
   }
 
-  // روت تأیید توکن JWT
   @Post('verify')
   @UseGuards(JwtAuthGuard)
   verify(@Req() req) {
     return {
       status: 'token is valid',
-      user: req.user, // اگر توکن معتبر باشه، اطلاعات کاربر برگردانده میشه
+      user: req.user,
     };
   }
 }
